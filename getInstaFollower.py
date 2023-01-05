@@ -1,8 +1,8 @@
 import instaloader
-
+#only can run on macOS yet :(
 L = instaloader.Instaloader()
 
-USER = "dawara0058@gmail.com"
+USER = input("Enter Instagram ID : ")
 PROFILE = "hufs_dsm"
 
 L.interactive_login(USER) 
