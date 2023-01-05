@@ -3,7 +3,7 @@ import instaloader
 L = instaloader.Instaloader()
 
 USER = input("Enter Instagram ID : ")
-PROFILE = "hufs_dsm"
+PROFILE = input("Enter Instagram username(objective) : ")
 
 L.interactive_login(USER) 
 profile = instaloader.Profile.from_username(L.context, PROFILE)
