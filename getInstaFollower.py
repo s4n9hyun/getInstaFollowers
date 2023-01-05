@@ -1,5 +1,5 @@
 import instaloader
-#only can run on macOS yet :(
+
 L = instaloader.Instaloader()
 
 USER = input("Enter Instagram ID : ")
