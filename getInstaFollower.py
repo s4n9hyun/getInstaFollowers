@@ -1,17 +1,19 @@
+# Importing Libraries
 import instaloader
+import pandas as pd
 
-L = instaloader.Instaloader()
+# Creating an instance of the Instaloader class
+bot = instaloader.Instaloader()
+bot.login(user="dawara0058@gmail.com", passwd="kjin1203")
+NAME = "hufs_chinese"
+# Loading a profile from an Instagram handle
+profile = instaloader.Profile.from_username(bot.context, NAME)
 
-USER = input("Enter Instagram ID : ")
-PROFILE = input("Enter Instagram username(objective) : ")
+# Retrieving the usernames of all followers
+followers = [follower.username for follower in profile.get_followers()]
 
-L.interactive_login(USER) 
-profile = instaloader.Profile.from_username(L.context, PROFILE)
+# Converting the data to a DataFrame
+followers_df = pd.DataFrame(followers)
 
-followers = set(profile.get_followers())
-
-print("Storing followers into file.")
-with open("followers.txt", 'w') as f:
-    for follower in followers:
-        s = 'www.instagram.com/' + follower.username
-        print(s, file=f)
+# Storing the results in a CSV file
+followers_df.to_csv(NAME+'.csv', index=False, encoding='UTF8')
